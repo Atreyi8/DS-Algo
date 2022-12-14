@@ -270,3 +270,115 @@ const reverseStack = (stack1) =>{
 
 console.log(reverseStack([1,2,3,4,5]))
 
+//
+
+// sort array via recursion
+//https://www.youtube.com/watch?v=AZ4jEY_JAVc&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=6
+
+const inserLastElement = (list,temp) =>{
+    console.log("####",list,temp)
+    if(list.length===0 || list[list.length-1]<=temp){
+        list.push(temp)
+        return list
+    }
+
+    let anotherTemp = list[list.length-1]
+    list.pop()
+    inserLastElement(list,temp)
+    list.push(anotherTemp)
+
+}
+
+const sortArray = (arr) =>{
+    // base condition
+    if(arr.length===1){
+        console.log("here____")
+        return
+    }
+
+    let temp = arr[arr.length-1]
+    arr.pop()
+    console.log("1",arr)
+     sortArray(arr)
+
+     inserLastElement(arr,temp)
+
+
+     return arr
+
+
+}
+console.log(sortArray([2,3,7,6,4,5,9]))
+//
+
+const inserLastElement = (list,element) => {
+    if(list.length===0 || list[list.length-1]<=element){
+        list.push(element)
+      
+        return list
+  
+    }
+
+
+    let last = list[list.length-1]
+    list.pop()
+    inserLastElement(list,element)
+  
+    list.push(last) 
+
+
+}
+
+
+const sortArray = (arr) =>{
+
+    if(arr.length===1){
+        return
+    }
+
+    let element = arr[arr.length-1]
+    arr.pop()
+    console.log("1,arr",arr)
+    sortArray(arr)
+
+    inserLastElement(arr,element)
+
+    return arr
+
+}
+
+console.log(sortArray([2,3,7,6,4,5,9]))
+
+//
+const insertLast = (list,temp) =>{
+
+    if(list.length===0 || list[list.length-1]<=temp){
+        list.push(temp)
+        return list
+    }
+
+    let otherTemp = list[list.length-1]
+    list.pop()
+    insertLast(list,temp)
+    list.push(otherTemp)
+}
+
+
+const sortStack = (stack1) =>{
+
+
+    if(stack1.length===1){
+        return
+    }
+
+    let lastElement = stack1[stack1.length-1]
+    stack1.pop()
+    sortStack(stack1)
+    insertLast(stack1,lastElement)
+
+    return stack1
+
+
+}
+
+console.log(sortStack([2,3,7,6,4,5,9]))
